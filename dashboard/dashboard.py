@@ -59,7 +59,7 @@ st.dataframe(data=df.head(5), width=800, height=150)
 st.write("Tail of the datasets")
 st.dataframe(data=df.tail(5), width=800, height=150)
 
-grouped_df = df[["PM2.5","PM10","SO2","NO2","CO","O3","TEMP","PRES","DEWP","RAIN","WSPM", 'station']].groupby("station").mean()
+grouped_df = df[["PM2.5","PM10","SO2","NO2","CO","O3","TEMP","PRES","DEWP","RAIN","WSPM", 'station']].groupby("station").mean(numeric_only=True)
 grouped_df = grouped_df.reset_index()
  
 #
@@ -92,7 +92,7 @@ with tab1:
 with tab2:
     st.subheader("Changping")
     st.write("Average substances level by year")
-    df_2 = df[df["station"]=="Changping"].groupby("year").mean().reset_index()
+    df_2 = df[df["station"]=="Changping"].groupby("year").mean(numeric_only=True).reset_index()
     
     #graph 1
     df2_long1=pd.melt(df_2, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
@@ -111,7 +111,7 @@ with tab2:
 with tab3:
     st.subheader("Dingling")
     st.write("Average substances level by year")
-    df_3 = df[df["station"]=="Dingling"].groupby("year").mean().reset_index()
+    df_3 = df[df["station"]=="Dingling"].groupby("year").mean(numeric_only=True).reset_index()
     
     #graph 1
     df3_long1=pd.melt(df_3, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
@@ -130,7 +130,7 @@ with tab3:
 with tab4:
     st.subheader("Dongsi")
     st.write("Average substances level by year")
-    df_4 = df[df["station"]=="Dingling"].groupby("year").mean().reset_index()
+    df_4 = df[df["station"]=="Dingling"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df4_long1=pd.melt(df_4, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df4_long1, x="year", y="value", color="variable")
@@ -149,7 +149,7 @@ with tab4:
 with tab5:
     st.subheader("Guanyuan")  
     st.write("Average substances level by year")
-    df_5 = df[df["station"]=="Guanyuan"].groupby("year").mean().reset_index()
+    df_5 = df[df["station"]=="Guanyuan"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df5_long1=pd.melt(df_5, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df5_long1, x="year", y="value", color="variable")
@@ -168,7 +168,7 @@ with tab5:
 with tab6:
     st.subheader("Gucheng")
     st.write("Average substances level by year")  
-    df_6 = df[df["station"]=="Gucheng"].groupby("year").mean().reset_index()
+    df_6 = df[df["station"]=="Gucheng"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df6_long1=pd.melt(df_6, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df6_long1, x="year", y="value", color="variable")
@@ -187,7 +187,7 @@ with tab6:
 with tab7:
     st.subheader("Huairou") 
     st.write("Average substances level by year")
-    df_7 = df[df["station"]=="Huairou"].groupby("year").mean().reset_index()
+    df_7 = df[df["station"]=="Huairou"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df7_long1=pd.melt(df_7, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df7_long1, x="year", y="value", color="variable")
@@ -206,7 +206,7 @@ with tab7:
 with tab8:
     st.subheader("Nongzhanguan")  
     st.write("Average substances level by year")
-    df_8 = df[df["station"]=="Nongzhanguan"].groupby("year").mean().reset_index()
+    df_8 = df[df["station"]=="Nongzhanguan"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df8_long1=pd.melt(df_8, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df8_long1, x="year", y="value", color="variable")
@@ -225,7 +225,7 @@ with tab8:
 with tab9:
     st.subheader("Tiantan")   
     st.write("Average substances level by year")
-    df_9 = df[df["station"]=="Tiantan"].groupby("year").mean().reset_index()
+    df_9 = df[df["station"]=="Tiantan"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df9_long1=pd.melt(df_9, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df9_long1, x="year", y="value", color="variable")
@@ -244,7 +244,7 @@ with tab9:
 with tab10:
     st.subheader("Wanliu")  
     st.write("Average substances level by year")
-    df_10 = df[df["station"]=="Wanliu"].groupby("year").mean().reset_index()
+    df_10 = df[df["station"]=="Wanliu"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df10_long1=pd.melt(df_10, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df10_long1, x="year", y="value", color="variable")
@@ -263,7 +263,7 @@ with tab10:
 with tab11:
     st.subheader("Wanshouxigong")  
     st.write("Average substances level by year")
-    df_11 = df[df["station"]=="Wanshouxigong"].groupby("year").mean().reset_index()
+    df_11 = df[df["station"]=="Wanshouxigong"].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df11_long1=pd.melt(df_11, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df11_long1, x="year", y="value", color="variable")
@@ -282,7 +282,7 @@ with tab11:
 with tab12:
     st.subheader("All")
     st.write("Average substances level by year")
-    year_grouped_df = df[["PM2.5","PM10","SO2","NO2","CO","O3","TEMP","PRES","DEWP","RAIN","WSPM", "year"]].groupby("year").mean().reset_index()
+    year_grouped_df = df[["PM2.5","PM10","SO2","NO2","CO","O3","TEMP","PRES","DEWP","RAIN","WSPM", "year"]].groupby("year").mean(numeric_only=True).reset_index()
     #graph 1
     df_long=pd.melt(year_grouped_df, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
     fig = px.line(df_long, x="year", y="value", color="variable")
