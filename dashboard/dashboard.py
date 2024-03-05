@@ -73,7 +73,7 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12 = st.t
 with tab1:
     st.subheader("Aotizhongxin")
     st.write("Average substances level by year")
-    df_1 = df[df["station"]=="Aotizhongxin"].groupby("year").mean(numeric_only=False).reset_index()
+    df_1 = df[df["station"]=="Aotizhongxin"].groupby("year").mean(numeric_only=True).reset_index()
     
     #graph 1
     df1_long1=pd.melt(df_1, id_vars=['year'], value_vars=["PM2.5","PM10","SO2","NO2","O3"])
